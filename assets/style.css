@@ -1,0 +1,11 @@
+#header {
+    background-color: darkgrey;
+    height: 100px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+#header-title {
+    text-align: center;
+    color: white;
+}
