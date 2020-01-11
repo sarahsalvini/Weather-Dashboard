@@ -17,44 +17,65 @@
     <script src="https://kit.fontawesome.com/a8c1598f85.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <!-- header -->
+<body>
+    <!-- header  -->
   <div id="header" class="container-fluid">
       <h1 id="header-title">Weather Dashboard</h1>
-  </div>
+  </div> 
 
 
 
 <main class="container-fluid">
     <div class="row">
-  <!-- search bar -->
         <div class="col-md-4">
-            <div class="row">
-                <div class="input-group mb-3 col-md-12">
-                 <input type="text" class="form-control" id="city" aria-label="City">
-                 <div class="input-group-append">
-                     <button class="btn btn-primary" id="searchBtn" type="search"><i class="fas fa-search"></i></button>
-                 </div>
-                </div>
-            </div>
-    <!-- search history -->
+                <form id="city-form">
+                    <label for="city-input">Choose Your City</label>
+                    <input type="text" id="city-input">
+                    <input id="select-city" type="submit" value="search">
+                </form>
+            
+
+
     <div class="card row" id="history">
-        <ul class="list-group" id="search-history">
-        </ul>
-    </div>
+    <div id="city-div"></div>
 </div>
+</div>
+
+
 <!-- current weather -->
 <div class="col-md-8">
     Current Weather
     <div class="container-fluid">
         <div id="currentWeather" class="card col-md-12">
             <div class="card-body">
-                <div id="currentCity"></div>
+                <div class="city"></div>
+                <div class="wind"></div>
+                <div class="humidity"></div>
+                <div class="temp"></div>
             </div>
         </div>
     </div>
-    
-<!-- 5 Day Weather Forecast -->
+</div>
+</div>
+</main>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/script.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- current weather -->
+
+<!-- 5 Day Weather Forecast
 <h3>5 Day Weather Forecast:</h3>
 <div class="container-fluid">
     <div class="card-deck">
@@ -74,12 +95,12 @@
             <div class="card-body" id="5"></div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
-</div>
+<!-- </div>
 </div>
 </main>
-  </body>
-</html>
+  </body> -->
+<!-- </html> -->
