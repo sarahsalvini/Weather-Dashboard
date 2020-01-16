@@ -24,48 +24,44 @@
   </div> 
 
 
-
+<!-- search bar -->
 <main class="container-fluid">
     <div class="row">
         <div class="col-md-4">
                 <form id="city-form">
-                    <label for="city-input">Choose Your City</label>
+                    <label for="city-input">Choose Your City</label><br>
                     <input type="text" id="city-input">
                     <input id="select-city" type="submit" value="search">
                 </form>
             
 
-
+<!-- list of city buttons -->
     <div class="card row" id="history">
     <div id="city-div"></div>
-        <div id="cityTitle"></div>
-        <div id="temperature"></div>
-        <div id="humidity"></div>
-        <div id="windSpeed"></div>
-        <div id="UV"></div>
 </div>
 </div>
 
-
-<!-- // name
-// temp: 
-//     main.temp
-
-// humidity: 
-//     main.humidity
-
-// wind speed:
-//     wind.speed
-
-// UV Index: -->
-
-<!-- current weather -->
+<!-- current weather box -->
 <div class="col-md-8">
-    Current Weather
+    <h3>Current Weather</h3>
     <div class="container-fluid">
         <div id="currentWeather" class="card col-md-12">
+            <div id="cityTitle"></div>
+            <div id="cityImg"></div>
+            <div id="temperature"></div>
+            <div id="humidity"></div>
+            <div id="windSpeed"></div>
+            <div id="UV"></div>
         </div>
     </div>
+
+<!-- <5 Day Weather Forecast -->
+ <h3>5 Day Weather Forecast:</h3>
+    <div class="card-deck mx-0">
+        <div id="fiveDayForecast" class="d-flex flex-row forecast"></div>
+    </div>
+
+
 </div>
 </div>
 </main>
@@ -77,36 +73,6 @@
 
 
 
-
-
-
-
-
-
-
-<!-- current weather -->
-
-<!-- 5 Day Weather Forecast
-<h3>5 Day Weather Forecast:</h3>
-<div class="container-fluid">
-    <div class="card-deck">
-        <div class="card border-primary mb-3">
-            <div class="card-body" id="1"></div>
-        </div>
-        <div class="card border-primary mb-3">
-            <div class="card-body" id="2"></div>
-        </div>
-        <div class="card border-primary mb-3">
-            <div class="card-body" id="3"></div>
-        </div>
-        <div class="card border-primary mb-3">
-            <div class="card-body" id="4"></div>
-        </div>
-        <div class="card border-primary mb-3">
-            <div class="card-body" id="5"></div>
-        </div>
-    </div>
-</div> -->
 
 
 

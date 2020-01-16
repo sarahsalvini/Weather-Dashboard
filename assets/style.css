@@ -1,5 +1,5 @@
 #header {
-    background-color: darkgrey;
+    background-color: slategrey;
     height: 100px;
     margin-bottom: 20px;
     padding-top: 20px;
@@ -15,6 +15,24 @@
     margin-bottom: 15px;
 }
 
+#historyBtn {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .card-body {
     min-height: 150px;
+    background-color: thistle;
+    margin: 2px;
+}
+
+
+
+.fiveDay {
+    background-color: thistle;
+}
+
+.mainBody {
+    width: 95%;
 }
