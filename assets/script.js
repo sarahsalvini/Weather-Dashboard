@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 
 
-
+// function for curront conditions once city is searched
 function searchWeather(city) {
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey;
     
@@ -19,6 +19,7 @@ function searchWeather(city) {
         var history = $("<button id='historyBtn'>").html(response.name);
             $("#city-div").append(history);
 
+// creating an icon based on the weather condition
         var icon = response.weather[0].icon;
         var showIcon = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
         
@@ -36,9 +37,11 @@ function searchWeather(city) {
         var cityWind = $("#windSpeed").text("Wind Speed: " + response.wind.speed + " MPH");
             $("#currentWeather").append(cityWind);
 
+// defining long & lat for UV to be displayed 
         var lon = response.coord.lon;
         var lat = response.coord.lat;
 
+// calling the UV function for it to be displayed 
         UVIndex(lat, lon)
 
 })
@@ -46,6 +49,8 @@ function searchWeather(city) {
 
 
 
+
+// creating a UV index based on the long & lat of the city and where the sun is
 function UVIndex(lat, lon) {
     var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey +"&lat=" + lat + "&lon=" + lon;
 
@@ -55,11 +60,12 @@ function UVIndex(lat, lon) {
     }).done(function(response){
         console.log(response)
 
+// based on the city the user chooses the UV index will be displayed
         var uvNumber = response.value
       var uv = $("#UV").html("UV Index: " +  "<span class='uvColorBox'>" + uvNumber + "</span>");
       $("#currentWeather").append(uv);
 
-
+// creating different colors based on the UV index
       if (uvNumber < 4){
         $(".uvColorBox").css({
             "background-color": "lightgreen",
@@ -80,6 +86,7 @@ function UVIndex(lat, lon) {
 
 
 
+// function that creates the 5 day weather forecasts and displays it
 function fiveDayWeather(city) {
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + apiKey;
 
@@ -89,6 +96,7 @@ function fiveDayWeather(city) {
     }).done(function(forecast){
         console.log(forecast)
 
+// for loop that creates the information based on the city chosen
         for (var i = 0; i < forecast.list.length; i+= 8) {
             var date = forecast.list[i].dt_txt;
             var formatDate = moment(date).format("L");
@@ -97,7 +105,8 @@ function fiveDayWeather(city) {
             var icon = forecast.list[i].weather[0].icon;
             var weatherIcon = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
-            var futureWeather = $('<div class="card bg-light ml-0 mb-3 mr-3" style="min-width: 100px;">').html('<div class="card-body">'
+// creating the text content to be displayed in each card
+            var futureWeather = $('<div class="card bg-light ml-0 mb-3 mr-3" style="min-width: 150px;">').html('<div class="card-body">'
                  + '<h6 class="card-title" id="date">' + formatDate + "</h6>" 
                  + '<img src="' + weatherIcon + '"/>' 
                  + '<div class="card-text" id="temp-humidity">' 
@@ -106,11 +115,11 @@ function fiveDayWeather(city) {
                  + "Humidity: " + humidity + "%" 
                  + "</div>" + "</div>" + "</div>");
 
-
+// putting all the information needed in each card
             $("#fiveDayForecast").append(futureWeather)
         }
         
-
+        
     })
 }
 
@@ -124,7 +133,7 @@ $("#select-city").on("click", function(event) {
 
         searchWeather(city);
         fiveDayWeather(city);
-        UVIndex(city)
+        UVIndex(lat, lon);
     })
 
 
