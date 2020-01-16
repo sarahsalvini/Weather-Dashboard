@@ -55,9 +55,24 @@ function UVIndex(lat, lon) {
     }).done(function(response){
         console.log(response)
 
-        var uv = response.value;
-      $("#UV").html("UV Index: " + '<span class="uv-index-number">' + uv + "</span>");
+        var uvNumber = response.value
+      var uv = $("#UV").html("UV Index: " +  "<span class='uvColorBox'>" + uvNumber + "</span>");
+      $("#currentWeather").append(uv);
 
+
+      if (uvNumber < 4){
+        $(".uvColorBox").css({
+            "background-color": "lightgreen",
+        });
+      } else if (uvNumber >= 5 && uvNumber <= 7) {
+        $(".uvColorBox").css({
+            "background-color": "yellow",
+        });
+      } else {
+        $(".uvColorBox").css({
+            "background-color": "red",
+        });
+      }
 
     })
 }
