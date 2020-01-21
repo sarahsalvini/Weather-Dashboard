@@ -29,8 +29,8 @@
     <div class="row">
         <div class="col-md-4">
                 <form id="city-form">
-                    <label for="city-input">Choose Your City</label><br>
-                    <input type="text" id="city-input">
+                    <label for="city-input" style="font-weight: bold; text-decoration: underline;">Choose Your City</label><br>
+                    <input type="text" id="city-input" style="border: lightgray solid 1px;">
                     <input id="select-city" type="submit" value="search">
                 </form>
             
@@ -60,7 +60,7 @@
 <!-- <5 Day Weather Forecast -->
 <div class="container-fluid col-md-10 forecastArea">
     <h3>5 Day Weather Forecast:</h3>
-    <div>
+    <div class="card-deck mx-0" id="fiveCards">
         <div id="fiveDayForecast" class="d-flex flex-row forecast"></div>
     </div>
 </div>
