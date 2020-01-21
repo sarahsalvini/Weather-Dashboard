@@ -45,7 +45,7 @@ function searchWeather(city) {
 // calling the UV function for it to be displayed 
         UVIndex(lat, lon)
 })
-}
+
 
 
 
@@ -82,7 +82,7 @@ function UVIndex(lat, lon) {
       }
     })
 }
-
+}
 
 
 
@@ -130,15 +130,12 @@ function fiveDayWeather(city) {
 $("#select-city").on("click", function(event) {
         event.preventDefault();
         var city = $("#city-input").val().trim();
-        var lat = ""
-        var lon = ""
 
         saveCitySearch(city);
         getSavedCity();
         searchWeather(city);
         $("#fiveDayForecast").html("")
         fiveDayWeather(city);
-        UVIndex(lat, lon);
     })
 
 // saving input to local storage
@@ -191,8 +188,6 @@ $(document).on("click", ".historyBtn", function(event) {
     searchWeather(clickedCity)
     $("#fiveDayForecast").html("")
     fiveDayWeather(clickedCity);
-    
-
 })
 
 
