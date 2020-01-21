@@ -109,7 +109,7 @@ function fiveDayWeather(city) {
             var weatherIcon = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
 // creating the text content to be displayed in each card
-            var futureWeather = $('<div class="card bg-light ml-0 mb-3 mr-3" style="min-width: 150px;">').html('<div class="card-body">'
+            var futureWeather = $('<div class="card bg-light ml-0 mb-3 mr-3 blueCards"style="min-width: 150px;">').html('<div class="card-body">'
                  + '<h6 class="card-title" id="date">' + formatDate + "</h6>" 
                  + '<img src="' + weatherIcon + '"/>' 
                  + '<div class="card-text" id="temp-humidity">' 
