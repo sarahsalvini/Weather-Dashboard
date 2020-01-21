@@ -3,6 +3,9 @@ $(document).ready(function(){
     var apiKey = "ef82854d1d438966fb160a6d8e7f319b";
 
 
+var cityArr = [];
+
+
 
 
 
@@ -15,9 +18,6 @@ function searchWeather(city) {
         method: "GET"
     }).done(function(response){
         console.log(response)
-// when user searches for a city, button is created below search box
-        var history = $("<button id='historyBtn'>").html(response.name);
-            $("#city-div").append(history);
 
 // creating an icon based on the weather condition
         var icon = response.weather[0].icon;
@@ -37,15 +37,16 @@ function searchWeather(city) {
         var cityWind = $("#windSpeed").text("Wind Speed: " + response.wind.speed + " MPH");
             $("#currentWeather").append(cityWind);
 
+
 // defining long & lat for UV to be displayed 
         var lon = response.coord.lon;
         var lat = response.coord.lat;
 
 // calling the UV function for it to be displayed 
         UVIndex(lat, lon)
-
 })
 }
+
 
 
 
@@ -79,9 +80,10 @@ function UVIndex(lat, lon) {
             "background-color": "red",
         });
       }
-
     })
 }
+
+
 
 
 
@@ -89,6 +91,7 @@ function UVIndex(lat, lon) {
 // function that creates the 5 day weather forecasts and displays it
 function fiveDayWeather(city) {
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + apiKey;
+
 
     $.ajax({
         url: queryURL,
@@ -117,12 +120,9 @@ function fiveDayWeather(city) {
 
 // putting all the information needed in each card
             $("#fiveDayForecast").append(futureWeather)
-        }
-        
-        
+        }   
     })
 }
-
 
 
 
@@ -130,14 +130,70 @@ function fiveDayWeather(city) {
 $("#select-city").on("click", function(event) {
         event.preventDefault();
         var city = $("#city-input").val().trim();
+        var lat = ""
+        var lon = ""
 
+        saveCitySearch(city);
+        getSavedCity();
         searchWeather(city);
+        $("#fiveDayForecast").html("")
         fiveDayWeather(city);
         UVIndex(lat, lon);
     })
 
+// saving input to local storage
+function saveCitySearch(city) {
+    cityArr.push(city.toLowerCase());
+    localStorage.setItem("city", JSON.stringify(cityArr));
+}
 
 
+function getSavedCity() {
+    var searchHistory = JSON.parse(localStorage.getItem("city"));
+
+    if (!searchHistory) {
+        return null;
+    }
+
+    cityArr = searchHistory
+
+    $("#city-div").empty();
+
+    for (var i = 0; i < searchHistory.length; i++) {
+        var cityButton = $("<button id='historyBtn'>");
+        cityButton.addClass("historyBtn");
+        cityButton.attr("data-name", searchHistory[i]);
+        cityButton.text(searchHistory[i]); 
+  
+  
+    $("#city-div").prepend(cityButton); 
+}
+}
+
+// clearing previous data from other cities
+function clear() {
+    $(".icon-image").empty();
+    $("#5-day-forecast").empty();
+    $("#city-input").val("");
+    $("#error-message").empty();
+  }
+
+
+// making history buttons pull city info
+$(document).on("click", ".historyBtn", function(event) {
+
+    event.preventDefault();
+
+    clear();
+
+    var clickedCity = $(this).attr("data-name");
+
+    searchWeather(clickedCity)
+    $("#fiveDayForecast").html("")
+    fiveDayWeather(clickedCity);
+    
+
+})
 
 
 
