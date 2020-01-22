@@ -11,7 +11,7 @@ var cityArr = [];
 
 // function for curront conditions once city is searched
 function searchWeather(city) {
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey;
     
     $.ajax({
         url: queryURL,
@@ -53,7 +53,7 @@ function searchWeather(city) {
 
 // creating a UV index based on the long & lat of the city and where the sun is
 function UVIndex(lat, lon) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey +"&lat=" + lat + "&lon=" + lon;
+    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey +"&lat=" + lat + "&lon=" + lon;
 
     $.ajax({
         url: queryURL,
@@ -90,7 +90,7 @@ function UVIndex(lat, lon) {
 
 // function that creates the 5 day weather forecasts and displays it
 function fiveDayWeather(city) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + apiKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + apiKey;
 
 
     $.ajax({
