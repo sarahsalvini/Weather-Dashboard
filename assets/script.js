@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var apiKey = "ef82854d1d438966fb160a6d8e7f319b";
+var apiKey = "ef82854d1d438966fb160a6d8e7f319b";
 
 
 var cityArr = [];
@@ -81,8 +81,7 @@ function UVIndex(lat, lon) {
         });
       }
     })
-}
-}
+}}
 
 
 
@@ -137,6 +136,9 @@ $("#select-city").on("click", function(event) {
         $("#fiveDayForecast").html("")
         fiveDayWeather(city);
     })
+    getSavedCity();
+
+
 
 // saving input to local storage
 function saveCitySearch(city) {
@@ -145,6 +147,8 @@ function saveCitySearch(city) {
 }
 
 
+
+// getting the information from local storage and displaying it
 function getSavedCity() {
     var searchHistory = JSON.parse(localStorage.getItem("city"));
 
@@ -164,8 +168,9 @@ function getSavedCity() {
   
   
     $("#city-div").prepend(cityButton); 
-}
-}
+}}
+
+
 
 // clearing previous data from other cities
 function clear() {
@@ -174,6 +179,7 @@ function clear() {
     $("#city-input").val("");
     $("#error-message").empty();
   }
+
 
 
 // making history buttons pull city info
