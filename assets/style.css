@@ -13,7 +13,9 @@
 #currentWeather {
     height: 300px;
     margin-bottom: 15px;
+    background-color: white;
 }
+
 
 #historyBtn {
     width: 100%;
