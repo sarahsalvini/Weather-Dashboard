@@ -17,4 +17,4 @@ I used the OpenWeather API to retrieve weather data for cities.
   <li>click on a city in the search history</li>
   
   
-  <h2>Licenses:</h2>
+  view site: https://sarahsalvini.github.io/Weather-Dashboard/
