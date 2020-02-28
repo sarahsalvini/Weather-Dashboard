@@ -15,6 +15,7 @@ I used the OpenWeather API to retrieve weather data for cities.
   <li>presented with a color that indicates whether the conditions are favorable, moderate, or severe</li>
   <li>5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity</li>
   <li>click on a city in the search history</li>
+  <br>
+  <br>
   
-  
-  <h2>Licenses:</h2>
+  view site: https://sarahsalvini.github.io/Weather-Dashboard/
