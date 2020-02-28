@@ -1,81 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Weather Dashboard</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <!-- My Stylesheet -->
-    <link rel="stylesheet" href="assets/style.css">
-    <!-- Moment.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/a8c1598f85.js" crossorigin="anonymous"></script>
-  </head>
-
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>Weather Dashboard</title>
+      <link rel="stylesheet" href="style.css" type="text/css">
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+</head>
 <body>
-    <!-- header  -->
-  <div id="header" class="container-fluid">
-      <h1 id="header-title">Weather Dashboard</h1>
-  </div> 
+ <!-- current date and city-->
 
-
-<!-- search bar -->
-<main class="container-fluid searchArea">
-    <div class="row">
-        <div class="col-md-4">
-                <form id="city-form">
-                    <label for="city-input" style="font-weight: bold; text-decoration: underline;">Choose Your City</label><br>
-                    <input type="text" id="city-input" style="border: lightgray solid 1px;">
-                    <input id="select-city" type="submit" value="search">
-                </form>
-            
-
-<!-- list of city buttons -->
-    <div class="card row" id="history">
-    <div id="city-div"></div>
-</div>
-</div>
-
-<!-- current weather box -->
-<div class="col-md-8">
-    <h3>Current Weather</h3>
-    <div class="container-fluid currentBody">
-        <div id="currentWeather" class="card col-md-12">
-            <div id="cityTitle"></div>
-            <div id="cityImg"></div>
-            <div id="temperature"></div>
-            <div id="humidity"></div>
-            <div id="windSpeed"></div>
-            <div id="UV"></div>
+ <div class="container">
+    <div class="weather-side">
+      <div class="weather-gradient"></div>
+      <div class="date-container">
+        <h2 class="date-dayname" id="currentDay">Tuesday</h2><span class="date-day" id="date-day">Date</span><i class="location-icon" data-feather="map-pin"></i><span class="location" id="cityTitle">Paris, FR</span>
+      </div>
+      <div class="weather-container"><i class="weather-icon" data-feather="sun"></i>
+        <h1 class="weather-temp" id="temperature">29°F</h1>
+        <h3 class="weather-desc" id="cityDesc">Sunny</h3>
+      </div>
+    </div>
+    <div class="info-side">
+      <div class="today-info-container">
+        <div class="today-info">
+          <div class="wind"> <span class="title">WIND</span><span class="value" id="windSpeed">3 mph</span>
+            <div class="clear"></div>
+          </div>
+          <div class="humidity"> <span class="title">HUMIDITY</span><span class="value" id="humidity">34 %</span>
+            <div class="clear"></div>
+          </div>
+          <div class="UV"> <span class="title">UV INDEX</span><span class="value" id="UV">2.3</span>
+            <div class="clear"></div>
+          </div>
         </div>
+      </div>
+      <div class="week-container">
+        <ul class="week-list fiveDay">
+          <div class="clear"></div>
+        </ul>
+      </div>
+      <div class="location-container">
+        <input type="text" class="location-button" id="city-input"> <i data-feather="map-pin"></i></input>
+        <br>
+        <button class="location-button" id="select-city" type="submit" value="search"> <i data-feather="map-pin"></i><span>Search</span></button>
+      </div>
     </div>
-</div>
-</div>
-<div class="col-md-1"></div>
-<!-- <5 Day Weather Forecast -->
-<div class="container-fluid col-md-10 forecastArea">
-    <h3>5 Day Weather Forecast:</h3>
-    <div class="card-deck mx-0" id="fiveCards">
-        <div id="fiveDayForecast" class="d-flex flex-row forecast"></div>
-    </div>
-</div>
-<div class="col-md-1"></div>
-
-
-</main>
+  </div>
 </body>
-<script src="./assets/script.js"></script>
+<script src="script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- <script src="./assets/script.js"></script> -->
 </html>
-
-
-
-
-
-
