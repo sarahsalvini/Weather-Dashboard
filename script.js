@@ -133,11 +133,13 @@ $(document).ready(function () {
         event.preventDefault();
         var city = $("#city-input").val().trim();
 
+        
         saveCitySearch(city);
         getSavedCity();
         searchWeather(city);
         $("#fiveDayForecast").html("")
         fiveDayWeather(city);
+        clear();
     })
     getSavedCity();
 
@@ -178,10 +180,19 @@ $(document).ready(function () {
 
     // clearing previous data from other cities
     function clear() {
-        $(".icon-image").empty();
-        $("#5-day-forecast").empty();
-        $("#city-input").val("");
-        $("#error-message").empty();
+        $("#windSpeed").empty();
+        $("#humidity").empty();
+        $("#UV").empty();
+        $("#temperature").empty();
+        $("#cityDesc").empty();
+        $(".weather-icon").empty();
+        $("#currentDay").empty();
+        $("#date-day").empty();
+        $("#day-name").empty();
+        $("#day-temp").empty();
+        $(".fiveDay").empty();
+        $("#cityTitle").empty();
+        $("#cityTitle").empty();
     }
 
 
